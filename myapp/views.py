@@ -1,8 +1,10 @@
 from django.http import HttpResponse
-import datetime
+from myapp.models import Person
 
 
 def current_datetime(request):
-    now = datetime.datetime.now()
-    html = "<html><body>It is now %s.</body></html>" % now
+    html = '<html><body>'
+    for person in Person.objects.all():
+        html += '{} {} {}'.format(person.first_name, person.last_name, person.profession.name)
+    html += '</body></html>'
     return HttpResponse(html)

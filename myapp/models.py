@@ -14,4 +14,4 @@ class Person(models.Model):
     profession = models.ForeignKey(Profession, on_delete=models.CASCADE)
 
     def __str__(self):
-        return '{} {}'.format(self.firstname, self.last_name)
+        return '{} {}'.format(self.first_name, self.last_name)
